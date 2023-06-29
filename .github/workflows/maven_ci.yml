@@ -34,5 +34,7 @@ jobs:
     - name: Step 4 - List the current directory 
       run: ls -la
       
-    - name: Step 5 - List is target folder
-      run: ls -a
+    - name: Step 5 - List in target folder
+      run: |
+        cd target
+        ls -a
