@@ -33,11 +33,17 @@ jobs:
            mvn -B package --file pom.xml
            mkdir artifacts && cp target/*.jar artifacts
            cd artifacts && ls
-
-    - name: Step 4 - List the current directory 
+           
+    - name: Step 4 - Save artifact 
+      uses: actions/upload-artifact@v2
+      with:
+        name: github-actions-artifact
+        path: artifacts
+        
+    - name: Step 5 - List the current directory 
       run: ls -la
       
-    - name: Step 5 - List in target folder
+    - name: Step 6 - List in target folder
       run: |
         cd target
         ls -a
