@@ -29,8 +29,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Step 3 - Build with Maven
-      run: mvn -B package --file pom.xml
-      
+      run: |
+           mvn -B package --file pom.xml
+           mkdir artifacts && cp target/*.jar artifacts
+           cd artifacts && ls
+
     - name: Step 4 - List the current directory 
       run: ls -la
       
